@@ -1,5 +1,3 @@
-"""Core orchestration service for candidate-job semantic matching."""
-
 from __future__ import annotations
 
 from uuid import uuid4
@@ -16,8 +14,6 @@ from app.services.embedding_service import EmbeddingService
 
 
 class MatchingService:
-    """Handles candidate/job creation and semantic matching operations."""
-
     def __init__(
         self,
         candidate_repository: CandidateRepository,
@@ -31,7 +27,6 @@ class MatchingService:
         self._embedding_service = embedding_service
 
     async def create_candidate(self, payload: CandidateCreateRequest) -> CandidateResponse:
-        """Create a candidate, embed skills text, and store vector."""
         candidate = Candidate(
             id=str(uuid4()),
             name=payload.name,
@@ -53,7 +48,6 @@ class MatchingService:
         )
 
     async def create_job(self, payload: JobCreateRequest) -> JobResponse:
-        """Create a job, embed description text, and store vector."""
         job = Job(
             id=str(uuid4()),
             title=payload.title,
@@ -73,7 +67,6 @@ class MatchingService:
         )
 
     async def match_candidates_for_job(self, job_id: str) -> MatchResultsResponse:
-        """Return top ranked candidates for a job using cosine similarity and experience tie-break."""
         job = self._job_repository.get(job_id)
         if job is None:
             raise KeyError(f"Job '{job_id}' not found.")

@@ -1,5 +1,3 @@
-"""Application configuration."""
-
 from __future__ import annotations
 
 import os
@@ -8,8 +6,6 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Settings:
-    """Immutable runtime settings loaded from environment variables."""
-
     app_name: str = os.getenv("APP_NAME", "Semantic Candidate Matching API")
     app_version: str = os.getenv("APP_VERSION", "1.0.0")
     embedding_model_name: str = os.getenv(

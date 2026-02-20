@@ -1,5 +1,3 @@
-"""Job and matching API routes."""
-
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -17,7 +15,6 @@ async def create_job(
     payload: JobCreateRequest,
     service: MatchingService = Depends(get_matching_service),
 ) -> JobResponse:
-    """Create a job description and persist its embedding."""
     return await service.create_job(payload)
 
 
@@ -26,7 +23,6 @@ async def match_candidates(
     job_id: str,
     service: MatchingService = Depends(get_matching_service),
 ) -> MatchResultsResponse:
-    """Return top ranked candidate matches for a given job."""
     try:
         return await service.match_candidates_for_job(job_id)
     except KeyError as error:

@@ -1,5 +1,3 @@
-"""FastAPI application entrypoint."""
-
 from __future__ import annotations
 
 from fastapi import FastAPI
@@ -13,7 +11,6 @@ app = FastAPI(title=settings.app_name, version=settings.app_version)
 
 @app.get("/health", tags=["Health"])
 async def health_check() -> dict[str, str]:
-    """Simple health-check endpoint."""
     return {"status": "ok"}
 
 

@@ -1,5 +1,3 @@
-"""Candidate API routes."""
-
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, status
@@ -16,5 +14,4 @@ async def create_candidate(
     payload: CandidateCreateRequest,
     service: MatchingService = Depends(get_matching_service),
 ) -> CandidateResponse:
-    """Create a candidate profile and persist its embedding."""
     return await service.create_candidate(payload)
