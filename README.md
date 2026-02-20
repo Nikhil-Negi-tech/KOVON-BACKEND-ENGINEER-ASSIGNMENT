@@ -2,6 +2,12 @@
 
 FastAPI backend for semantic candidate-job matching using HuggingFace embeddings and FAISS vector search.
 
+## Demo Video
+
+[![Watch Demo](https://drive.google.com/thumbnail?id=1pCRmghZsbRvezrPWOx8OUjFSKcpsu3JH&sz=w1000)](https://drive.google.com/file/d/1pCRmghZsbRvezrPWOx8OUjFSKcpsu3JH/view?usp=sharing)
+
+Direct link: https://drive.google.com/file/d/1pCRmghZsbRvezrPWOx8OUjFSKcpsu3JH/view?usp=sharing
+
 ## Tech Stack
 
 - Python 3.10+
