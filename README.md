@@ -153,3 +153,20 @@ docker run --rm -p 8000:8000 semantic-matching-api
 
 - Storage is in-memory (repositories + FAISS indexes). Restarting the service resets data.
 - This is intentionally lightweight and modular for extension to persistent databases.
+
+## Postman Collection
+
+Sample files are included in the `postman` folder:
+
+- `postman/KOVON-Candidate-Matching.postman_collection.json`
+- `postman/KOVON-local.postman_environment.json`
+
+Import both into Postman, select the `KOVON Local` environment, then run requests in this order:
+
+1. Health Check
+2. Create Candidate - Backend
+3. Create Candidate - Data
+4. Create Job
+5. Match Candidates for Job
+
+The `Create Job` request stores `job_id` automatically for the match request.
